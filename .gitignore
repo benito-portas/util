@@ -1,0 +1,16 @@
+### Eclipse ###
+.metadata/*
+.recommenders/*
+.sonarlint/*
+
+### Otros proyectos ###
+sego_scripts/*
+sego_eclipse/*
+*/.project
+
+/.metadata/
+/.recommenders/
+**/bin/
+**/.classpath
+**/.settings/
+**/ejemplos/
