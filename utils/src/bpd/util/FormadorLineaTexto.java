@@ -4,10 +4,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Colecciona datos uno a uno hasta alcanzar el fin de línea. Añade la línea al
- * bote de líneas para ser leída.<br/>
- * Se define un tiempo máximo tras el cual se asume que la línea está formada.
- * De ser así el caso, el siguiente fin de línea que se reciba no se tendría en
+ * Colecciona datos uno a uno hasta alcanzar el fin de lÃ­nea. Aï¿½ade la lÃ­nea al
+ * bote de lÃ­neas para ser leï¿½da.<br/>
+ * Se define un tiempo mï¿½ximo tras el cual se asume que la lÃ­nea estï¿½ formada.
+ * De ser asï¿½ el caso, el siguiente fin de lÃ­nea que se reciba no se tendrï¿½a en
  * cuenta
  * 
  */
@@ -15,34 +15,34 @@ public class FormadorLineaTexto
 
 {
 	/**
-	 * Lista de todos los renglones que han sido formados, pero todavía no
-	 * leídos por el cliente
+	 * Lista de todos los renglones que han sido formados, pero todavï¿½a no
+	 * leï¿½dos por el cliente
 	 */
 	private Queue< String >	_LineasFormadasPendientesDeLeer;
 	/**
-	 * Datos recibidos que todavía no alcanzan a formar una línea
+	 * Datos recibidos que todavï¿½a no alcanzan a formar una lÃ­nea
 	 */
 	private StringBuilder	_LineaEnFormacion;
 	private String			_IdentificadorFinLinea	= "\r\n";
 
 	/**
-	 * Vigilante de formación. Con este temporizador se decide que el renglón se
+	 * Vigilante de formaciÃ³n. Con este temporizador se decide que el renglï¿½n se
 	 * da por formado si en un tiempo no se ha recibido dato alguno, aunque no
-	 * se haya recibido la marca de fin de línea
+	 * se haya recibido la marca de fin de lÃ­nea
 	 */
 	private Ciclo			_TemporizadorFinLin;
 
 	/**
-	 * Longitud máxima que se admite para una línea. A partir de esta longitud
-	 * se supone que algo no funciona (que no se está empleando el código de
-	 * caracteres adecuado, y no se detectan los fines de línea). Al alcanzar
-	 * esta longitud se pasa a la lista de líneas formadas
+	 * Longitud mï¿½xima que se admite para una lÃ­nea. A partir de esta longitud
+	 * se supone que algo no funciona (que no se estï¿½ empleando el cï¿½digo de
+	 * caracteres adecuado, y no se detectan los fines de lÃ­nea). Al alcanzar
+	 * esta longitud se pasa a la lista de lÃ­neas formadas
 	 */
 	private int				_MaximaLongitud;
 
 	/**
-	 * Genera un formador de línea con los valores predeterminados para el fin
-	 * de línea (ASCII CRLF), y un temporizador fin de línea de tres segundos
+	 * Genera un formador de lÃ­nea con los valores predeterminados para el fin
+	 * de lÃ­nea (ASCII CRLF), y un temporizador fin de lÃ­nea de tres segundos
 	 */
 	public FormadorLineaTexto()
 		{
@@ -50,16 +50,16 @@ public class FormadorLineaTexto
 		}
 
 	/**
-	 * Genera un formador de línea con los valores para el fin de línea
-	 * <code>_id_finLinea</code>, y un temporizador fin de línea de
+	 * Genera un formador de lÃ­nea con los valores para el fin de lÃ­nea
+	 * <code>_id_finLinea</code>, y un temporizador fin de lÃ­nea de
 	 * <code>_tiempoEsperaFinLinea_ms</code> milisegundos
 	 * 
 	 * @param _id_finLinea
-	 *            El identificador de fin de línea
+	 *            El identificador de fin de lÃ­nea
 	 * @param _tiempoEsperaFinLinea_ms
-	 *            El tiempo de fin de línea. Al cabo de este tiempo, aunque no
-	 *            se haya recibido el fin de línea, se trataría lo recibido como
-	 *            una línea completa. Como si sï¿½ se recibiera el fin de línea
+	 *            El tiempo de fin de lÃ­nea. Al cabo de este tiempo, aunque no
+	 *            se haya recibido el fin de lÃ­nea, se tratarï¿½a lo recibido como
+	 *            una lÃ­nea completa. Como si sï¿½ se recibiera el fin de lÃ­nea
 	 * @param _maximaLongitud
 	 */
 	public FormadorLineaTexto( String _id_finLinea, int _tiempoEsperaFinLinea_ms, int _maximaLongitud )
@@ -80,8 +80,8 @@ public class FormadorLineaTexto
 		}
 
 	/**
-	 * Recibe el dato e incluye en el renglón en formación. Si el dato es la
-	 * marca de fin de línea, se da el renglón por formado y se pasa a la lista
+	 * Recibe el dato e incluye en el renglï¿½n en formaciÃ³n. Si el dato es la
+	 * marca de fin de lÃ­nea, se da el renglï¿½n por formado y se pasa a la lista
 	 * de pendientes de leer por el usuario
 	 * 
 	 * @param _dato
@@ -103,7 +103,7 @@ public class FormadorLineaTexto
 		}
 
 	/**
-	 * Comprueba si hay textos pendientes de ser leídos por el usuario
+	 * Comprueba si hay textos pendientes de ser leï¿½dos por el usuario
 	 * 
 	 * @return <code>true</code>, si hay textos
 	 */
@@ -122,7 +122,7 @@ public class FormadorLineaTexto
 		}
 
 	/**
-	 * Cambia el identificador de fin de línea al
+	 * Cambia el identificador de fin de lÃ­nea al
 	 * <code>_nuevoIdentificador</code>,
 	 * 
 	 * @param _nuevoIdentificador
@@ -138,9 +138,9 @@ public class FormadorLineaTexto
 		}
 
 	/**
-	 * Secuencia que determina cuándo se alcaza el fin de la línea de texto
+	 * Secuencia que determina cuï¿½ndo se alcaza el fin de la lÃ­nea de texto
 	 * 
-	 * @return El texto que define el fin de línea
+	 * @return El texto que define el fin de lÃ­nea
 	 */
 	public String identificadorFinLinea()
 		{
@@ -169,11 +169,11 @@ public class FormadorLineaTexto
 		}
 
 	/**
-	 * Lee el siguiente renglón de la lista de pendientes de leer. Tras la
-	 * lectura, el renglón desaparece de la lista de pendientes
+	 * Lee el siguiente renglï¿½n de la lista de pendientes de leer. Tras la
+	 * lectura, el renglï¿½n desaparece de la lista de pendientes
 	 * 
-	 * @return El siguiente renglón de la lista de pendientes, o
-	 *         <code>null</code>, si la lista está vacía
+	 * @return El siguiente renglï¿½n de la lista de pendientes, o
+	 *         <code>null</code>, si la lista estï¿½ vacÃ­a
 	 */
 	public String texto()
 		{
@@ -185,8 +185,8 @@ public class FormadorLineaTexto
 		_TemporizadorFinLin.para();
 
 		/*
-		 * Protección contra exceso de consumo de memoria por acumulación de
-		 * líneas si nadie las lee (aleatoriamente, límite = 1000)
+		 * ProtecciÃ³n contra exceso de consumo de memoria por acumulaciÃ³n de
+		 * lÃ­neas si nadie las lee (aleatoriamente, lÃ­mite = 1000)
 		 */
 		if( _LineasFormadasPendientesDeLeer.size() > 1000 )
 			texto();
@@ -201,9 +201,9 @@ public class FormadorLineaTexto
 		}
 
 	/**
-	 * Ha alcanzado el fin de línea cuando se detecta la secuencia de fin de
-	 * línea al final de la línea en formación, o cuando la línea en formación
-	 * supera el límite máximo de caracteres.
+	 * Ha alcanzado el fin de lÃ­nea cuando se detecta la secuencia de fin de
+	 * lÃ­nea al final de la lÃ­nea en formaciÃ³n, o cuando la lÃ­nea en formaciÃ³n
+	 * supera el lÃ­mite mï¿½ximo de caracteres.
 	 * 
 	 * @return
 	 */

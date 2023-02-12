@@ -14,8 +14,8 @@ public class Reaccion
 	private Pattern						_PatronEstimulo;
 
 	/**
-	 * <code>_estimulo</code> es una expresión <code>REGEX</code> que define el
-	 * estímulo al que hay que reaccionar
+	 * <code>_estimulo</code> es una expresiÃ³n <code>REGEX</code> que define el
+	 * estï¿½mulo al que hay que reaccionar
 	 * 
 	 * @param _estimulo
 	 */
@@ -25,7 +25,7 @@ public class Reaccion
 		}
 
 	/**
-	 * Comprueba si el <code>_texto</code> es mi estímulo, y reacciona
+	 * Comprueba si el <code>_texto</code> es mi estï¿½mulo, y reacciona
 	 * 
 	 * @param _texto
 	 */

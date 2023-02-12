@@ -5,7 +5,7 @@ public interface ObservadorEstimulos
 	/**
 	 * 
 	 * @param _texto
-	 *            Texto con el que se ha disparado la reacción
+	 *            Texto con el que se ha disparado la reacciÃ³n
 	 */
 	public void reaccion( String _texto );
 }

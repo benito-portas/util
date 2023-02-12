@@ -5,24 +5,24 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 /**
- * <h1>Definición</h1> Interpretación de un texto como secuencia de partes. El
+ * <h1>DefiniciÃ³n</h1> InterpretaciÃ³n de un texto como secuencia de partes. El
  * espacio en blanco es el separador que define las partes. La primera parte se
- * interpreta como <code>mando</code>, el resto son los <code>parámetros</code>
+ * interpreta como <code>mando</code>, el resto son los <code>parï¿½metros</code>
  * <h2>Accesos</h2>
  * <li>mando</li> Texto que representa el mando. La primera parte del texto
  * <li>parametros</li> El texto original sin la primera parte (todos los
- * parámetros)
- * <li>listaParametros</li> Lista con todos los parámetros, o lista vacía, si el
- * mando no tiene parámetros
- * <li>parametro</li> Acceso a uno de los parámetros, según el índice. El primer
- * parámetro tiene el índice cero. Si el índice consultado no existe, el
- * resultado es un texto vacío
+ * parï¿½metros)
+ * <li>listaParametros</li> Lista con todos los parï¿½metros, o lista vacÃ­a, si el
+ * mando no tiene parï¿½metros
+ * <li>parametro</li> Acceso a uno de los parï¿½metros, segï¿½n el ï¿½ndice. El primer
+ * parï¿½metro tiene el ï¿½ndice cero. Si el ï¿½ndice consultado no existe, el
+ * resultado es un texto vacï¿½o
  * <li>es</li> Comprueba si es un mando en concreto
  * <li>esComentario</li>
  * <li>esMando</li> No es comentario
  * <p>
- * Si el primer carácter no blanco es un inicio de comentario, el mando se
- * interpreta como comentario. No tiene ni mando ni parámetros.
+ * Si el primer carï¿½cter no blanco es un inicio de comentario, el mando se
+ * interpreta como comentario. No tiene ni mando ni parï¿½metros.
  * </p>
  */
 public class Mando
@@ -43,7 +43,7 @@ public class Mando
 		}
 
 	/**
-	 * Genera el mando según el texto <code>_mando</code>
+	 * Genera el mando segï¿½n el texto <code>_mando</code>
 	 * 
 	 * @param _mando
 	 *            El texto
@@ -103,7 +103,7 @@ public class Mando
 		}
 
 	/**
-	 * Lista con los parámetros
+	 * Lista con los parï¿½metros
 	 * 
 	 * @return La lista
 	 */
@@ -113,13 +113,13 @@ public class Mando
 		}
 
 	/**
-	 * Acceso al parámetro con el índice <code>_nroParam</code>. El primer
-	 * parámetro tiene el índice cero. Si no existe el índice, se obtiene un
-	 * texto vacío
+	 * Acceso al parï¿½metro con el ï¿½ndice <code>_nroParam</code>. El primer
+	 * parï¿½metro tiene el ï¿½ndice cero. Si no existe el ï¿½ndice, se obtiene un
+	 * texto vacï¿½o
 	 * 
 	 * @param _nroParam
-	 *            El índice para acceder al parámetro
-	 * @return El parámetro
+	 *            El ï¿½ndice para acceder al parï¿½metro
+	 * @return El parï¿½metro
 	 */
 	public String parametro( int _nroParam )
 		{
@@ -130,9 +130,9 @@ public class Mando
 		}
 
 	/**
-	 * Cantidad de parámetros que componten el mando
+	 * Cantidad de parï¿½metros que componten el mando
 	 * 
-	 * @return El número de parámetros
+	 * @return El nÃºmero de parï¿½metros
 	 */
 	public int numeroParametros()
 		{
@@ -140,10 +140,10 @@ public class Mando
 		}
 
 	/**
-	 * Acceso al texto original que contiene sólo los parámetros tal cual se
+	 * Acceso al texto original que contiene sï¿½lo los parï¿½metros tal cual se
 	 * introdujo
 	 * 
-	 * @return Los parámetros
+	 * @return Los parï¿½metros
 	 */
 	public String parametros()
 		{

@@ -22,7 +22,7 @@ public class PlantillaRegex
 									// coordenada_y
 									.grupo( "y", new PlantillaRegex().signoNumerico().opcional().digito().maximo( 2 ).punto().digito().repetido() )
 
-									// separación
+									// separaciÃ³n
 									.coma()
 									.espacio()
 									.repetidoOpcional()
@@ -44,9 +44,9 @@ public class PlantillaRegex
 		}
 
 	/**
-	 * Compila la expresión contenida en <code>_campo</code> y capta posibles
+	 * Compila la expresiÃ³n contenida en <code>_campo</code> y capta posibles
 	 * excepciones, con el objeto de encontrar fallos en el momento de definir
-	 * la expresión, en vez de cuando se está ejecutando la lectura de ficheros
+	 * la expresiÃ³n, en vez de cuando se estï¿½ ejecutando la lectura de ficheros
 	 * 
 	 * @param texto
 	 * 
@@ -68,7 +68,7 @@ public class PlantillaRegex
 
 	/**
 	 * Concatena, mediante espacio, los textos de los grupos en secuencia de
-	 * número de grupos.
+	 * nÃºmero de grupos.
 	 * 
 	 * @param m
 	 * @return
@@ -121,7 +121,7 @@ public class PlantillaRegex
 		}
 
 	/**
-	 * Cualquier expresión. Al menos algo
+	 * Cualquier expresiÃ³n. Al menos algo
 	 * 
 	 * @return
 	 */
@@ -131,7 +131,7 @@ public class PlantillaRegex
 		}
 
 	/**
-	 * Cualquier carácter, número, signo, etc. es válido
+	 * Cualquier carï¿½cter, nÃºmero, signo, etc. es vï¿½lido
 	 * 
 	 * @return
 	 */
@@ -141,7 +141,7 @@ public class PlantillaRegex
 		}
 
 	/**
-	 * Signo más (+) para anteceder a números positivos, y signo menos (-) para
+	 * Signo mï¿½s (+) para anteceder a nÃºmeros positivos, y signo menos (-) para
 	 * los negaticos
 	 * 
 	 * @return
@@ -275,14 +275,14 @@ public class PlantillaRegex
 
 	/**
 	 * Consta de una letra, o el signo "_" seguido opcionalmente de una lista de
-	 * letras y números, teniendo en cuenta los caracteres especiales del
-	 * español
+	 * letras y nÃºmeros, teniendo en cuenta los caracteres especiales del
+	 * espaï¿½ol
 	 * 
 	 * @return
 	 */
 	public PlantillaRegex palabra()
 		{
-		return texto( "[a-zA-ZáéíóúÁÉÍÓÚüÜñÑàèìòù_][a-zA-ZáéíóúÁÉÍÓüÜñÑàèìòù0-9_]*" );
+		return texto( "[a-zA-Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_][a-zA-Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0-9_]*" );
 		}
 
 	public PlantillaRegex digito()
@@ -380,10 +380,10 @@ public class PlantillaRegex
 		}
 
 	/**
-	 * Es número cuando el <code>_texto</code> se compone de cifras, con
+	 * Es nÃºmero cuando el <code>_texto</code> se compone de cifras, con
 	 * posibilidad de signo positivo o negativo al inicio, con o sin punto
-	 * decimal. El punto decimal puede ser el inicio o el final del número. El
-	 * número tiene que contener al menos una cifra
+	 * decimal. El punto decimal puede ser el inicio o el final del nÃºmero. El
+	 * nÃºmero tiene que contener al menos una cifra
 	 * 
 	 * @param _texto
 	 * @return
@@ -449,7 +449,7 @@ public class PlantillaRegex
 		}
 
 	/**
-	 * Es número entero cuando el <code>_texto</code> se compone exclusivamente
+	 * Es nÃºmero entero cuando el <code>_texto</code> se compone exclusivamente
 	 * de cifras, posiblemente precedidas de signo positivo o negativo
 	 * 
 	 * @param _texto
@@ -469,25 +469,25 @@ public class PlantillaRegex
 
 	private static void pruabaEsNumeroEntero()
 		{
-		System.out.println( "----NÚMERO ENTERO" );
-		prueba( "Número entero debe contener al menos una cifra: con texto vacío", !esNumeroEntero( "" ) );
-		prueba( "Número entero sólo contiene cifras 123", esNumeroEntero( "123" ) );
-		prueba( "Número entero no contiene nada que no sea cifra 1.23", !esNumeroEntero( "1.23" ) );
-		prueba( "Número entero puede tener signo positivo +123", esNumeroEntero( "+123" ) );
-		prueba( "Número entero puede tener signo negativo -123", esNumeroEntero( "-123" ) );
-		prueba( "Número entero no debe tener sólo signo +", !esNumeroEntero( "+" ) );
+		System.out.println( "----NÃºmero ENTERO" );
+		prueba( "NÃºmero entero debe contener al menos una cifra: con texto vacï¿½o", !esNumeroEntero( "" ) );
+		prueba( "NÃºmero entero sï¿½lo contiene cifras 123", esNumeroEntero( "123" ) );
+		prueba( "NÃºmero entero no contiene nada que no sea cifra 1.23", !esNumeroEntero( "1.23" ) );
+		prueba( "NÃºmero entero puede tener signo positivo +123", esNumeroEntero( "+123" ) );
+		prueba( "NÃºmero entero puede tener signo negativo -123", esNumeroEntero( "-123" ) );
+		prueba( "NÃºmero entero no debe tener sï¿½lo signo +", !esNumeroEntero( "+" ) );
 		}
 
 	private static void pruebaEsNumero()
 		{
-		System.out.println( "----NÚMERO" );
-		prueba( "Número debe contener al menos una cifra: con texto vacío", !esNumero( "" ) );
-		prueba( "Número entero 123", esNumero( "123" ) );
-		prueba( "Número decimal ordinario 1.23", esNumero( "1.23" ) );
-		prueba( "Número empieza por punto decimal .123", esNumero( ".123" ) );
-		prueba( "Número termina en punto decimal 123.", esNumero( "123." ) );
-		prueba( "Número debe contener al menos una cifra: sólo punto", !esNumero( "." ) );
-		prueba( "Número no tiene más de un punto decimal 1.2.3", !esNumero( "1.2.3" ) );
+		System.out.println( "----NÃºmero" );
+		prueba( "NÃºmero debe contener al menos una cifra: con texto vacï¿½o", !esNumero( "" ) );
+		prueba( "NÃºmero entero 123", esNumero( "123" ) );
+		prueba( "NÃºmero decimal ordinario 1.23", esNumero( "1.23" ) );
+		prueba( "NÃºmero empieza por punto decimal .123", esNumero( ".123" ) );
+		prueba( "NÃºmero termina en punto decimal 123.", esNumero( "123." ) );
+		prueba( "NÃºmero debe contener al menos una cifra: sï¿½lo punto", !esNumero( "." ) );
+		prueba( "NÃºmero no tiene mï¿½s de un punto decimal 1.2.3", !esNumero( "1.2.3" ) );
 		}
 
 	private static void prueba( String _prueba, boolean _correcto )

@@ -13,16 +13,16 @@ public class Datos
 
 	/**
 	 * Genera una estructura del tipo <code>byte[]</code> partiendo de una
-	 * expresi髇 de texto
+	 * expresi贸n de texto
 	 * <p>
 	 * <ul>
 	 * <li>El texto puede contener separadores</li>
-	 * <li>Separador se entiende lo que no es un d韌ito hexadecimal (0-9, a-f,
+	 * <li>Separador se entiende lo que no es un d锟絞ito hexadecimal (0-9, a-f,
 	 * A-F)
-	 * <li>Los separadores se eliminan antes de la conversi髇</li>
-	 * <li>El n鷐ero de cifras en el texto tiene que ser par</li>
+	 * <li>Los separadores se eliminan antes de la conversi贸n</li>
+	 * <li>El n煤mero de cifras en el texto tiene que ser par</li>
 	 * <li>El texto se procesa de izquierda a derecha. El resultado se plasma
-	 * tambi閚 de izquierda a derecha</li>
+	 * tambi贸n de izquierda a derecha</li>
 	 * 
 	 * </p
 	 * 
@@ -40,18 +40,18 @@ public class Datos
 	 * 
 	 * @see #deTexto(String)
 	 * @param _hex
-	 *            Texto con d韌itos hexadecimales, y signos de separaci髇 entre
+	 *            Texto con d锟絞itos hexadecimales, y signos de separaci贸n entre
 	 *            ellos
 	 * @return
 	 */
 	public static byte[] aDatos( String _hex )
 		{
-		// Elimina separaciones entre los n鷐eros
+		// Elimina separaciones entre los n煤meros
 		_hex = _hex.replaceAll( "[^\\da-fA-F]", "" );
 
 		/*
-		 * Hago la longitud par para que pueda contar m醩 adelante de dos en dos
-		 * sin salirme de la lista de n鷐eros
+		 * Hago la longitud par para que pueda contar m锟絪 adelante de dos en dos
+		 * sin salirme de la lista de n煤meros
 		 */
 		int len = _hex.length();
 		if( len / 2 * 2 != len )
@@ -78,7 +78,7 @@ public class Datos
 		}
 
 	/**
-	 * El orden de grabaci髇 es de menor significancia a mayor (BIG ENDIAN)
+	 * El orden de grabaci贸n es de menor significancia a mayor (BIG ENDIAN)
 	 * 
 	 * @param _valor
 	 * @param _cantidadOctetos
@@ -124,8 +124,8 @@ public class Datos
 		}
 
 	/**
-	 * Ampl韆 <code>_datos</code> a la <code>_longitud</code> con el
-	 * <code>_valorRelleno</code> a馻dido a la derecha
+	 * Ampl锟絘 <code>_datos</code> a la <code>_longitud</code> con el
+	 * <code>_valorRelleno</code> a锟絘dido a la derecha
 	 * 
 	 * 
 	 * @param _datos
@@ -156,7 +156,7 @@ public class Datos
 		}
 
 	/**
-	 * Convierte el n鷐ero <code>_numero</code> en texto con ceros de relleno a
+	 * Convierte el n煤mero <code>_numero</code> en texto con ceros de relleno a
 	 * la izquierda para completar el <code>_cantidadDigitos</code>
 	 * 
 	 * @param _IdEvento
@@ -179,13 +179,13 @@ public class Datos
 	private static String TABLA_HEX = "0123456789abcdef";
 
 	/**
-	 * Representa la secuencia <code>_datos/code> con c骴igos hexadecimales.
-	 * S髄o intervienen los datos a partir de <code>_posInicial</code>
+	 * Representa la secuencia <code>_datos/code> con c锟絛igos hexadecimales.
+	 * S锟絣o intervienen los datos a partir de <code>_posInicial</code>
 	 *
 	 * @param _datos
 	 *            Datos a representar
 	 * @param _posInicial
-	 *            Posici髇 en la secuencia a partir de la cual se representa
+	 *            Posici贸n en la secuencia a partir de la cual se representa
 	 * @param _longitudAConvertir
 	 *            Cantidad de posiciones a representar
 	 * @return El texto
@@ -207,7 +207,7 @@ public class Datos
 		}
 
 	/**
-	 * Convierte a cifra hex (0..9,a..f) el <code>_dato</code>, valiendo s髄o
+	 * Convierte a cifra hex (0..9,a..f) el <code>_dato</code>, valiendo s锟絣o
 	 * los cuatro bit de menor peso
 	 * 
 	 * @param _dato
@@ -225,7 +225,7 @@ public class Datos
 		}
 
 	/**
-	 * Toma s髄o los datos a partir de la <code>_posicionInicial</code>
+	 * Toma s锟絣o los datos a partir de la <code>_posicionInicial</code>
 	 * 
 	 * @param _posicionInicial
 	 * @param _datos
@@ -253,25 +253,25 @@ public class Datos
 		}
 
 	/**
-	 * Porci髇 de <code>_datos</code> entre las posiciones
-	 * <code>_posInicial</code> y <code>_posFinal</code> (閟ta excluida)
+	 * Porci贸n de <code>_datos</code> entre las posiciones
+	 * <code>_posInicial</code> y <code>_posFinal</code> (锟絪ta excluida)
 	 * 
 	 * <p>
-	 * Si la posici髇 inicial es inferior a cero, se toma la posici髇 cero. Si
-	 * la posici髇 final es superior al l韒ite superior de <code>_datos</code>,
-	 * se toma la posici髇 final de <code>_datos</code>.
+	 * Si la posici贸n inicial es inferior a cero, se toma la posici贸n cero. Si
+	 * la posici贸n final es superior al l铆mite superior de <code>_datos</code>,
+	 * se toma la posici贸n final de <code>_datos</code>.
 	 * </p>
 	 * 
 	 * <p>
 	 * Si la cantidad de datos resultante es inferior a uno, el resultado es una
-	 * lista de datos vac韆. Si la cantidad resultante es superior a la cantidad
+	 * lista de datos vac铆a. Si la cantidad resultante es superior a la cantidad
 	 * de datos en <code>_datos</code>, el resultado es <code>_datos</code>.
 	 * </p>
 	 * 
 	 * @param _datos
 	 * @param _posInicial
 	 * @param _posFinal
-	 * @return La porci髇 indicada, una lista vac韆, o todos los datos
+	 * @return La porci贸n indicada, una lista vac铆a, o todos los datos
 	 * 
 	 */
 	public static byte[] porcion( byte[] _datos, int _posInicial, int _posFinal )
@@ -429,7 +429,7 @@ public class Datos
 	 * @param _longitudTotal
 	 *            Longitud total del texto con el relleno
 	 * @param _c
-	 *            Car醕ter a utilizar como relleno
+	 *            Car锟絚ter a utilizar como relleno
 	 * @return El texto ampliado por la izquierda
 	 */
 	public static String completa( String _texto, int _longitudTotal, char _c )
@@ -446,16 +446,16 @@ public class Datos
 
 	/**
 	 * Lee de <code>_is</code> un bloque de una longitud de
-	 * <code>_cantidad</code> de bytes. Lanza una excepci髇 si no se ha podido
+	 * <code>_cantidad</code> de bytes. Lanza una excepci贸n si no se ha podido
 	 * leer esta <code>_cantidad</code>.
 	 * 
 	 * 
 	 * @param _is
 	 * @param _cantidad
-	 * @return Los datos le韉os, o nada, si se ha llegado al fin del fichero
+	 * @return Los datos le锟絛os, o nada, si se ha llegado al fin del fichero
 	 * 
 	 * @throws IOException
-	 *             Si la cantidad de bytes le韉os no es la misma
+	 *             Si la cantidad de bytes le锟絛os no es la misma
 	 *             <code>_cantidad</code>
 	 */
 	public static byte[] leeDe( InputStream _is, int _cantidad ) throws IOException
@@ -466,7 +466,7 @@ public class Datos
 			return new byte[] {};
 
 		if( leido != _cantidad )
-			throw new IOException( String.format( "Registro corrupto: longitud=%d, pero le韉o=%d", _cantidad, leido ) );
+			throw new IOException( String.format( "Registro corrupto: longitud=%d, pero le锟絛o=%d", _cantidad, leido ) );
 
 		return datos;
 		}

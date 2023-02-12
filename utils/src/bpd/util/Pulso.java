@@ -11,16 +11,16 @@ import java.util.function.Consumer;
  * Temporizador definido por el tiempo de dis
  * 
  * 
- * <h1>Definición</h1> Genera un <code>eventoEstado( true )</code> por un tiempo
- * de duración de pulso. Al final del pulso, genera otro evento
+ * <h1>DefiniciÃ³n</h1> Genera un <code>eventoEstado( true )</code> por un tiempo
+ * de duraciÃ³n de pulso. Al final del pulso, genera otro evento
  * <code>eventoEstado( false )</code>. Opcionalmente se puede retrasar el primer
  * evento mediante un <i>tiempo de retraso de disparo</i> <br/>
- * <h2>Creación</h2>
+ * <h2>CreaciÃ³n</h2>
  * <li>Pulso( int _duracionPulso )</li>
  * <li>Pulso( int _duracionPulso, int _retardoDisparo )</li>
  * <h2>Manejo</h2>
  * <li>dispara(). Desencadena el disparo del pulso</li>
- * <li>eventoEstado( boolean _estaEncendido ). Función que se genera cada vez
+ * <li>eventoEstado( boolean _estaEncendido ). FunciÃ³n que se genera cada vez
  * que el pulso cambia de estado</li>
  * <h1>Ejemplo</h1>
  * 
@@ -37,8 +37,8 @@ import java.util.function.Consumer;
  * 
  * Con cada cambio de estado, el pulso genera un <code>eventoEstado</code>.
  * Cuando se dispara, al pasar el tiempo de retraso del disparo, o
- * inmediatamente si no se especificó retraso, se genera
- * <code>eventoEstado( true )</code>, y al finalizar la duración del pulso, un
+ * inmediatamente si no se especificï¿½ retraso, se genera
+ * <code>eventoEstado( true )</code>, y al finalizar la duraciÃ³n del pulso, un
  * <code>eventoEstado( false )</code>
  */
 public class Pulso
@@ -60,12 +60,12 @@ public class Pulso
 	private Timer						_TemporizadorRetraso	= new Timer();
 
 	/**
-	 * Temporizador que controla la duración del pulso
+	 * Temporizador que controla la duraciÃ³n del pulso
 	 */
 	private Timer						_TemporizadorPulso		= new Timer();
 
 	/**
-	 * Cantidad de pulsos adicionales que se disparan automáticamente, tras el
+	 * Cantidad de pulsos adicionales que se disparan automï¿½ticamente, tras el
 	 * primer pulso
 	 */
 	private int							_NumeroRepeticiones		= 0;
@@ -79,7 +79,7 @@ public class Pulso
 	private Set< Consumer< Boolean > >	_Observadores			= new HashSet<>();
 
 	/**
-	 * Creación de un pulso con una <code>_duracionPulso</code>, y sin retraso
+	 * CreaciÃ³n de un pulso con una <code>_duracionPulso</code>, y sin retraso
 	 * cuando se dispare
 	 * 
 	 * @param _duracionPulso
@@ -92,11 +92,11 @@ public class Pulso
 		}
 
 	/**
-	 * Creación de un pulso con una <code>_duracionPulso</code>, y un
+	 * CreaciÃ³n de un pulso con una <code>_duracionPulso</code>, y un
 	 * <code>_retrasoDisparo</code>
 	 * 
 	 * @param _duracionPulso
-	 *            Duración en milisegundos
+	 *            DuraciÃ³n en milisegundos
 	 * @param _retrasoDisparo
 	 *            Retraso en milisegundos
 	 */
@@ -108,7 +108,7 @@ public class Pulso
 
 	/**
 	 * Desencadena el funcionamiento del pulso. Si se dispara antes de la
-	 * terminación de un disparo anterior, éste no se llega a completar. El
+	 * terminaciÃ³n de un disparo anterior, Ã©ste no se llega a completar. El
 	 * tiempo se inicia de nuevo sin ejecutar las tareas programadas para el
 	 * pulso.
 	 * 

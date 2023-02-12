@@ -11,6 +11,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.Iterator;
+
 import javax.imageio.ImageIO;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
@@ -225,7 +226,7 @@ public class UtilFichero
 	 * 
 	 * @param _fichero
 	 * @return el tipo de imagen (PNG, JPEG...), o <code>null</code>, si el
-	 *         fichero no existe, o un texto vacío, si no se puede obtener el
+	 *         fichero no existe, o un texto vacï¿½o, si no se puede obtener el
 	 *         tipo de imagen (porque no es una imagen, o por cualquier otro
 	 *         motivo?).
 	 * 
@@ -251,9 +252,9 @@ public class UtilFichero
 		}
 
 	/**
-	 * Calcula el código <code>MD5</code> del contenido del
-	 * <code>_fichero</code>. El resultado es un texto con la representación en
-	 * hexadecimal del código objetinod
+	 * Calcula el cï¿½digo <code>MD5</code> del contenido del
+	 * <code>_fichero</code>. El resultado es un texto con la representaciÃ³n en
+	 * hexadecimal del cï¿½digo objetinod
 	 * 
 	 * @param _fichero
 	 * @return
@@ -285,7 +286,7 @@ public class UtilFichero
 	 * <code>_f</code>.
 	 * <p/>
 	 * 
-	 * El resultado será una ristra vacía si el fichero no existe, o el tamapño
+	 * El resultado serÃ¡ una ristra vacÃ­a si el fichero no existe, o el tamapï¿½o
 	 * del fichero es inferior a la <code>_cantidad</code> pedida.
 	 * 
 	 * @param _f
@@ -319,4 +320,5 @@ public class UtilFichero
 
 		return datos;
 		}
+
 }

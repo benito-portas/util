@@ -19,7 +19,7 @@ import bpd.util.observadores.ObservadorCambioContador;
  * </p>
  * 
  * <p>
- * La cuenta se puede reiniciar desde cero a través del método
+ * La cuenta se puede reiniciar desde cero a travï¿½s del mÃ©todo
  * <code>rearma</code>. Al rearmar se lanza el evento de "valor ha cambiado"
  * </p>
  * 

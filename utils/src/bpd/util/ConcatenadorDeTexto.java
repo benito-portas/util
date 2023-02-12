@@ -11,7 +11,7 @@ public class ConcatenadorDeTexto
 	private String			_Alternativo		= "";
 
 	/**
-	 * El que inserta después del inicial
+	 * El que inserta despuï¿½s del inicial
 	 */
 	private Insertador		_InsertadorFinal	= _texto -> {
 												_TextoConcatenado.append( _Delimitador );
@@ -19,7 +19,7 @@ public class ConcatenadorDeTexto
 												};
 
 	/**
-	 * El que inicia la inserción
+	 * El que inicia la inserciÃ³n
 	 */
 	private Insertador		_InsertadorInicial	= _texto -> {
 												_TextoConcatenado.append( _texto );
@@ -27,7 +27,7 @@ public class ConcatenadorDeTexto
 												};
 
 	/**
-	 * El que realmente inserta. La primera inserción la asume el
+	 * El que realmente inserta. La primera inserciÃ³n la asume el
 	 * <code>_InsertadorInicial</code>, el resto de inserciones las hace el
 	 * <code>_InsertadorFinal</code>
 	 */
@@ -39,7 +39,7 @@ public class ConcatenadorDeTexto
 	private String			_Prefijo;
 
 	/**
-	 * Texto que se añade al conenido, si hay contenido
+	 * Texto que se aï¿½ade al conenido, si hay contenido
 	 */
 	private String			_Sufijo;
 
@@ -127,7 +127,7 @@ public class ConcatenadorDeTexto
 	 * @param _prefijo
 	 *            Texto que se antepone al contenido, si hay contenido
 	 * @param _sufijo
-	 *            Texto que se añade al contenido, si hay contenido
+	 *            Texto que se aï¿½ade al contenido, si hay contenido
 	 */
 	public ConcatenadorDeTexto( String _delimitador, String _prefijo, String _sufijo )
 		{
@@ -144,7 +144,7 @@ public class ConcatenadorDeTexto
 		}
 
 	/**
-	 * Añade un espacio al delimitador
+	 * Aï¿½ade un espacio al delimitador
 	 * 
 	 * @return
 	 */
@@ -194,10 +194,10 @@ public class ConcatenadorDeTexto
 		}
 
 	/**
-	 * Añade la <code>_nota</code>, si se cumple la <code>_condicion</code>
+	 * Aï¿½ade la <code>_nota</code>, si se cumple la <code>_condicion</code>
 	 * 
 	 * @param _condicion
-	 *            Si se cumple esta condición, se concatena la
+	 *            Si se cumple esta condiciÃ³n, se concatena la
 	 *            <code>_nota</code>
 	 * @param _nota
 	 * 
@@ -229,12 +229,12 @@ public class ConcatenadorDeTexto
 
 	/**
 	 * <p>
-	 * Definición de cómo debe ser concatenado el <code>_objeto</code>. Lo que
-	 * aquí se concatena es la representación en texto del <code>_objeto</code>
+	 * DefiniciÃ³n de cï¿½mo debe ser concatenado el <code>_objeto</code>. Lo que
+	 * aquÃ­ se concatena es la representaciÃ³n en texto del <code>_objeto</code>
 	 * </p>
 	 * <p>
-	 * Posibilidad de redefinir esta función para tener más flexibilidad a la
-	 * hora de concatenar algo en particular. Por ejemplo, concatenar sólo una
+	 * Posibilidad de redefinir esta funciÃ³n para tener mï¿½s flexibilidad a la
+	 * hora de concatenar algo en particular. Por ejemplo, concatenar sï¿½lo una
 	 * propiedad del objeto.
 	 * </p>
 	 * 

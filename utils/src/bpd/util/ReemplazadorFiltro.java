@@ -18,8 +18,8 @@ import java.util.stream.Collectors;
 /**
  * 
  * <ol>
- * <li>6-5-2022, error</li>Inserción en una posición en concreto
- * (filtro/exclusión/transformación)
+ * <li>6-5-2022, error</li>InserciÃ³n en una posiciÃ³n en concreto
+ * (filtro/exclusiÃ³n/transformaciÃ³n)
  * </ol>
  * 
  *
@@ -42,7 +42,7 @@ public class ReemplazadorFiltro
 	 * @see #rearma() para borrar todos los reemplazos, exclusiones y filtros
 	 * @see #borraFiltros() para borrar todos los filtros
 	 * @see #borraFiltro(String) par borrar un filtro
-	 * @see #borraExclusion(String) para borrar una exclusión
+	 * @see #borraExclusion(String) para borrar una exclusiÃ³n
 	 * @see #borraReemplazo(String) para borrar un reemplazo
 	 * @see #borraReemplazos() para borrar todos los reemplazos
 	 * 
@@ -91,7 +91,7 @@ public class ReemplazadorFiltro
 		}
 
 	/**
-	 * Añade <code>_texto</code> al final de la lista de textos a excluir.
+	 * Aï¿½ade <code>_texto</code> al final de la lista de textos a excluir.
 	 * 
 	 * @param _texto
 	 *            El texto a excluir
@@ -116,11 +116,11 @@ public class ReemplazadorFiltro
 		}
 
 	/**
-	 * Añande al final de la lista de transformaciones.
+	 * Aï¿½ande al final de la lista de transformaciones.
 	 * 
 	 * 
 	 * @param _textoOriginal
-	 *            Expresión REGEX que define el texto a transformar
+	 *            ExpresiÃ³n REGEX que define el texto a transformar
 	 * @param _transformacion
 	 *            Texto que substituye el texto original
 	 * @return
@@ -132,14 +132,14 @@ public class ReemplazadorFiltro
 
 	/**
 	 * 
-	 * Añade una nueva transformación y posiciónala en la <code>_posicion</code>
-	 * de la lista de transformaciones. No se añade, si la
-	 * <code>_posicion</code> está fuera de rango.
+	 * Aï¿½ade una nueva transformaciÃ³n y posiciÃ³nala en la <code>_posicion</code>
+	 * de la lista de transformaciones. No se aï¿½ade, si la
+	 * <code>_posicion</code> estï¿½ fuera de rango.
 	 * <p/>
 	 * 
 	 * Si el <code>_textoOriginal</code> ya se encuentra en la lista, se
-	 * modifica ésta en la posición que se encuentre, sin tener en cuenta la
-	 * <code>_posicion</code> que se esté pasando.
+	 * modifica ï¿½sta en la posiciÃ³n que se encuentre, sin tener en cuenta la
+	 * <code>_posicion</code> que se estï¿½ pasando.
 	 * <p/>
 	 * 
 	 * @param _textoOriginal
@@ -156,14 +156,14 @@ public class ReemplazadorFiltro
 			return this;
 
 		/*
-		 * Comprobación de la expresión REGEX
+		 * ComprobaciÃ³n de la expresiÃ³n REGEX
 		 */
 		Pattern.compile( _textoOriginal );
 
 		/*
 		 * El primer elemento se mete directamente
 		 */
-		if( _Transformaciones.isEmpty()  )
+		if( _Transformaciones.isEmpty() )
 			{
 			_Transformaciones.put( _textoOriginal, _transformacion );
 			return this;
@@ -185,11 +185,11 @@ public class ReemplazadorFiltro
 			nuevaLista.put( e.getKey(), e.getValue() );
 			pos++;
 			}
-		if( !nuevaLista.containsKey( _textoOriginal ))
+		if( !nuevaLista.containsKey( _textoOriginal ) )
 			nuevaLista.put( _textoOriginal, _transformacion );
 
 		_Transformaciones = nuevaLista;
-		
+
 		return this;
 		}
 
@@ -208,7 +208,7 @@ public class ReemplazadorFiltro
 	private String transformado( String _texto )
 		{
 		/*
-		 * Se transforma si las transformaciones están habilitadas
+		 * Se transforma si las transformaciones estï¿½n habilitadas
 		 */
 		if( _TransformacionesEstanHabilitadas )
 			{
@@ -253,7 +253,7 @@ public class ReemplazadorFiltro
 		}
 
 	/**
-	 * Borra todos los filtros definidos. A partir de ahora, no se filtra ningún
+	 * Borra todos los filtros definidos. A partir de ahora, no se filtra ningï¿½n
 	 * texto
 	 * 
 	 * @return
@@ -274,11 +274,11 @@ public class ReemplazadorFiltro
 
 	/**
 	 * Borra <code>_texto</code> de la lista de los filtros. A partir de ahora,
-	 * no se verán las líneas que contengan <code>_texto</code>, si hay otros
+	 * no se verÃ¡n las lÃ­neas que contengan <code>_texto</code>, si hay otros
 	 * filtros definidos.
 	 * <p>
-	 * Si era el único filtro que quedaba, al no tener filtro, se visualizan
-	 * todas las líneas de texto
+	 * Si era el Ãºnico filtro que quedaba, al no tener filtro, se visualizan
+	 * todas las lÃ­neas de texto
 	 * </p>
 	 * 
 	 * @param _texto
@@ -287,7 +287,7 @@ public class ReemplazadorFiltro
 	 * 
 	 * @see #rearma() para borrar todos los reemplazos, exclusiones y filtros
 	 * @see #borraFiltros() para borrar todos los filtros
-	 * @see #borraExclusion(String) para borrar una exclusión
+	 * @see #borraExclusion(String) para borrar una exclusiÃ³n
 	 * @see #borraExclusiones() para borrar todas las exclusiones
 	 * @see #borraReemplazo(String) para borrar un reemplazo
 	 * @see #borraReemplazos() para borrar todos los reemplazos
@@ -300,8 +300,8 @@ public class ReemplazadorFiltro
 		}
 
 	/**
-	 * Añade <code>_texto</code> al final de la lista de filtros. No se añade si
-	 * el texto es vacío.
+	 * Aï¿½ade <code>_texto</code> al final de la lista de filtros. No se aï¿½ade si
+	 * el texto es vacï¿½o.
 	 * 
 	 * @param _texto
 	 *            El texto a incluir en los filtros
@@ -314,7 +314,7 @@ public class ReemplazadorFiltro
 
 	/**
 	 * Inserta el <code>_texto</code> en la <code>_posicion</code> de la lista.
-	 * No se inserta si los filtros no están habilitados.
+	 * No se inserta si los filtros no estï¿½n habilitados.
 	 * 
 	 * @return
 	 * 
@@ -335,7 +335,7 @@ public class ReemplazadorFiltro
 	 * @see #reemplazos()
 	 * @see #exclusiones()
 	 * 
-	 * @return Los filtros definidos. Colección de textos
+	 * @return Los filtros definidos. ColecciÃ³n de textos
 	 */
 	public Collection< String > filtros()
 		{
@@ -357,7 +357,7 @@ public class ReemplazadorFiltro
 	private boolean esTextoFiltrar( String _texto )
 		{
 		/*
-		 * Sólo se aplica el filtro si los filtros están habilitados
+		 * Sï¿½lo se aplica el filtro si los filtros estï¿½n habilitados
 		 */
 		if( !_FiltrosEstanHabilitados )
 			return true;
@@ -399,7 +399,7 @@ public class ReemplazadorFiltro
 	private boolean esTextoParaExcluir( String _texto )
 		{
 		/*
-		 * No se excluye si las transformaciones no están habilitadas
+		 * No se excluye si las transformaciones no estï¿½n habilitadas
 		 */
 		if( !_ExclusionesEstanHabilitadas )
 			return false;
@@ -457,7 +457,7 @@ public class ReemplazadorFiltro
 
 		_lista.add( pos, _texto );
 
-		if( ind > pos )//subir
+		if( ind > pos )// subir
 			ind++;
 
 		_lista.remove( ind );
@@ -485,10 +485,10 @@ public class ReemplazadorFiltro
 		rf.filtra( "dos", 1 );
 		eo = rf.filtros().stream().collect( Collectors.joining( "," ) ).equals( "uno,dos,cero" );
 		System.out.println( eo );
-		rf.filtra( "xxx", 20 ); // por encima del límite
+		rf.filtra( "xxx", 20 ); // por encima del lÃ­mite
 		eo = rf.filtros().stream().collect( Collectors.joining( "," ) ).equals( "uno,dos,cero,xxx" );
 		System.out.println( eo );
-		rf.filtra( "xxx", -20 ); // por debajo del límite
+		rf.filtra( "xxx", -20 ); // por debajo del lÃ­mite
 		eo = rf.filtros().stream().collect( Collectors.joining( "," ) ).equals( "xxx,uno,dos,cero" );
 		System.out.println( eo );
 
@@ -513,7 +513,7 @@ public class ReemplazadorFiltro
 				.equals( "uno,dos" );
 		System.out.println( eo );
 
-		// bajar una posición
+		// bajar una posiciÃ³n
 		eo = rf//
 				.rearma()
 				.filtra( "uno" )
@@ -524,7 +524,7 @@ public class ReemplazadorFiltro
 				.equals( "uno" );
 		System.out.println( eo );
 
-		// bajar una posición
+		// bajar una posiciÃ³n
 		eo = rf//
 				.rearma()
 				.filtra( "uno" )
@@ -536,7 +536,7 @@ public class ReemplazadorFiltro
 				.equals( "dos,uno" );
 		System.out.println( eo );
 
-		// bajar una posición
+		// bajar una posiciÃ³n
 		eo = rf//
 				.rearma()
 				.filtra( "uno" )
@@ -567,10 +567,10 @@ public class ReemplazadorFiltro
 		rf.excluye( "dos", 1 );
 		eo = rf.exclusiones().stream().collect( Collectors.joining( "," ) ).equals( "uno,dos,cero" );
 		System.out.println( eo );
-		rf.excluye( "xxx", 20 ); // por encima del límite
+		rf.excluye( "xxx", 20 ); // por encima del lÃ­mite
 		eo = rf.exclusiones().stream().collect( Collectors.joining( "," ) ).equals( "uno,dos,cero,xxx" );
 		System.out.println( eo );
-		rf.excluye( "xxx", -20 ); // por debajo del límite
+		rf.excluye( "xxx", -20 ); // por debajo del lÃ­mite
 		eo = rf.exclusiones().stream().collect( Collectors.joining( "," ) ).equals( "xxx,uno,dos,cero" );
 		System.out.println( eo );
 
@@ -591,13 +591,13 @@ public class ReemplazadorFiltro
 		rf.transforma( "uno", "UNO", 2 );
 		eo = rf.transformaciones().keySet().stream().collect( Collectors.joining( "," ) ).equals( "dos,uno-y-medio,uno" );
 		System.out.println( eo );
-		rf.transforma( "uno", "UNO", 2 ); // en la misma posición
+		rf.transforma( "uno", "UNO", 2 ); // en la misma posiciÃ³n
 		eo = rf.transformaciones().keySet().stream().collect( Collectors.joining( "," ) ).equals( "dos,uno-y-medio,uno" );
 		System.out.println( eo );
-		rf.transforma( "xxx", "XXX", 20 ); // por encima del límite
+		rf.transforma( "xxx", "XXX", 20 ); // por encima del lÃ­mite
 		eo = rf.transformaciones().keySet().stream().collect( Collectors.joining( "," ) ).equals( "dos,uno-y-medio,uno" );
 		System.out.println( eo );
-		rf.transforma( "xxx", "XXX", -20 ); // por debajo del límite
+		rf.transforma( "xxx", "XXX", -20 ); // por debajo del lÃ­mite
 		eo = rf.transformaciones().keySet().stream().collect( Collectors.joining( "," ) ).equals( "dos,uno-y-medio,uno" );
 		System.out.println( eo );
 
@@ -622,8 +622,8 @@ public class ReemplazadorFiltro
 				.equals( "cero,uno,dos,tres" );
 		System.out.println( eo );
 
-		// subir una posición
-		System.out.println( "--subir una posición" );
+		// subir una posiciÃ³n
+		System.out.println( "--subir una posiciÃ³n" );
 		eo = rf	.rearma()//
 				.transforma( "uno", "UNO" )
 				.transforma( "dos", "DOS" )
@@ -636,8 +636,8 @@ public class ReemplazadorFiltro
 				.equals( "uno,tres,dos" );
 		System.out.println( eo );
 
-		// bajar una posición
-		System.out.println( "--bajar una posición" );
+		// bajar una posiciÃ³n
+		System.out.println( "--bajar una posiciÃ³n" );
 		eo = rf	.rearma()//
 				.transforma( "uno", "UNO" )
 				.transforma( "dos", "DOS" )

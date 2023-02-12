@@ -14,7 +14,7 @@ import com.google.common.base.Splitter;
 
 public class Texto
 {
-	private final static String[] NUMEROS = { "cero", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez" };
+	private static final String[] NUMEROS = { "cero", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez" };
 
 	private Texto()
 		{
@@ -22,10 +22,10 @@ public class Texto
 
 	/**
 	 * Genera una palabra partiendo del <code>_texto</code>, uniendo las
-	 * palabras del <code>_texto</code> en may˙scula.
+	 * palabras del <code>_texto</code> en may√∫scula.
 	 * <p/>
 	 * 
-	 * Ejemplo de la transformaciÛn:
+	 * Ejemplo de la transformaci√≥n:
 	 * 
 	 * <pre>
 	 * nombre del cliente -> NombreDelCliente
@@ -39,15 +39,16 @@ public class Texto
 		return Stream//
 						.of( _texto.split( "\\s+" ) )
 						.map( Texto::enMayuscula )
+						.map( Texto::sinAcentos )
 						.collect( Collectors.joining() );
 		}
 
 	/**
 	 * Genera una palabra partiendo del <code>_texto</code>, uniendo las
-	 * palabras del <code>_texto</code> en may˙scula. De este proceso se
+	 * palabras del <code>_texto</code> en may√∫scula. De este proceso se
 	 * excluyen las palabras definidas en <code>_excluyendo</code>.
 	 * 
-	 * Ejemplo de la transformaciÛn:
+	 * Ejemplo de la transformaci√≥n:
 	 * 
 	 * <pre>
 	 * nombre del cliente -> NombreCliente
@@ -64,6 +65,7 @@ public class Texto
 						.of( _texto.split( "\\s+" ) )
 						.filter( e -> !aExcluir.contains( e ) )
 						.map( Texto::enMayuscula )
+						.map( Texto::sinAcentos )
 						.collect( Collectors.joining() );
 		}
 
@@ -71,7 +73,7 @@ public class Texto
 	 * 
 	 * Comprueba si el texto <code>_opcion</code> se encuentra dentro de las
 	 * <code>_opcioones</code>. <code>_opciones</code> es un texto compuesto por
-	 * la concatenaciÛn de varios textos (las opciones) mediante un punto.
+	 * la concatenaci√≥n de varios textos (las opciones) mediante un punto.
 	 * 
 	 * <p>
 	 * Ejemplo
@@ -100,7 +102,7 @@ public class Texto
 	/**
 	 * Comprueba si el texto <code>_opcion</code> se encuentra dentro de las
 	 * <code>_opcioones</code>. <code>_opciones</code> es un texto compuesto por
-	 * la concatenaciÛn de varios textos (las opciones) mediante un
+	 * la concatenaci√≥n de varios textos (las opciones) mediante un
 	 * <code>_delimitadorOpciones</code> (por ejemplo un punto).
 	 * 
 	 * <p>
@@ -116,7 +118,7 @@ public class Texto
 	 * @param _opcion
 	 *            Valor que se quiere consultar
 	 * @param _delimitadorOpciones
-	 *            ExpresiÛn REGEX que define el delimitador en el texto de las
+	 *            Expresi√≥n REGEX que define el delimitador en el texto de las
 	 *            opciones
 	 * 
 	 * @see #contieneOpcion(String, String)
@@ -132,22 +134,22 @@ public class Texto
 		}
 
 	/**
-	 * Genera un n˙mero de versiÛn autom·ticamente partiendo de una
+	 * Genera un n√∫mero de versi√≥n automÔøΩticamente partiendo de una
 	 * <code>_version</code> anterior.
 	 * 
 	 * <p>
-	 * La siguiente versiÛn se obtiene incrementando el n˙mero final de la
-	 * expresiÛn en <code>_version</code>. Si la expresiÛn no termina en n˙mero,
-	 * se mantiene la versiÛn original
+	 * La siguiente versi√≥n se obtiene incrementando el n√∫mero final de la
+	 * expresi√≥n en <code>_version</code>. Si la expresi√≥n no termina en n√∫mero,
+	 * se mantiene la versi√≥n original
 	 * </p>
 	 * 
 	 * Ejemplos:
 	 * <ul>
 	 * <li>1.2.9</li>Resulta en 1.2.10
-	 * <li>VersiÛn_1</li>Resulta en VersiÛn_2
+	 * <li>Versi√≥n_1</li>Resulta en Versi√≥n_2
 	 * <li>3</li>Resulta en 4
 	 * <li>Prototipo</li>Resulta en Prototipo (no se cambia, no termina en
-	 * n˙mero)
+	 * n√∫mero)
 	 * <li>Actual.2.3</li>Resulta en Actual.2.4
 	 * </ul>
 	 * 
@@ -190,11 +192,11 @@ public class Texto
 
 	/**
 	 * Asegura que el <code>_texto</code> termina en <code>_terminacion</code>.
-	 * Si no lo hace, se le aÒade la terminaciÛn al texto.
+	 * Si no lo hace, se le aÔøΩade la terminaci√≥n al texto.
 	 * <p/>
 	 * 
-	 * Tiene en cuenta que la terminaciÛn puede venir en may˙sculas y
-	 * min˙sculas.
+	 * Tiene en cuenta que la terminaci√≥n puede venir en may√∫sculas y
+	 * min√∫sculas.
 	 * 
 	 * @param _terminacion
 	 * @param _texto
@@ -213,8 +215,8 @@ public class Texto
 	 * no lo hace, se le antepone el inicio al texto
 	 * <p/>
 	 * 
-	 * Tiene en cuenta que la terminaciÛn puede venir en may˙sculas y
-	 * min˙sculas.
+	 * Tiene en cuenta que la terminaci√≥n puede venir en may√∫sculas y
+	 * min√∫sculas.
 	 * 
 	 * @param _inicio
 	 * @param _texto
@@ -230,7 +232,7 @@ public class Texto
 
 	/**
 	 * Cambia todos los caracteres, no permitidos en un nombre de fichero, por
-	 * el car·cter "<code>_</code>".
+	 * el carÔøΩcter "<code>_</code>".
 	 * 
 	 * @param _nomFich
 	 * @return
@@ -241,7 +243,7 @@ public class Texto
 		}
 
 	/**
-	 * Es numÈrico si JAVA entiende la <code>_expresiÛn</code> como n˙mero
+	 * Es numÔøΩrico si JAVA entiende la <code>_expresi√≥n</code> como n√∫mero
 	 * decimal
 	 * 
 	 * @param _expresion
@@ -262,8 +264,8 @@ public class Texto
 		}
 
 	/**
-	 * <code>_texto</code> es n˙mero decimal cuando consta de un punto precedio
-	 * o seguido de dÌgitos, con posible signo en la primera posiciÛn
+	 * <code>_texto</code> es n√∫mero decimal cuando consta de un punto precedio
+	 * o seguido de dÔøΩgitos, con posible signo en la primera posici√≥n
 	 * <p/>
 	 * 
 	 * Ejemplos:
@@ -291,8 +293,8 @@ public class Texto
 	/**
 	 * <p>
 	 * Convierte <code>_texto</code> cambiando los caracteres con acentos en los
-	 * mismos sin acento, conservando las may˙sculas y min˙sculas. Igualmente se
-	 * convierte la eÒe en ene y la cedilla en la letre ce
+	 * mismos sin acento, conservando las may√∫sculas y min√∫sculas. Igualmente se
+	 * convierte la e√±e en ene y la cedilla en la letre ce
 	 * </p>
 	 * 
 	 * @param _texto
@@ -305,18 +307,30 @@ public class Texto
 		if( _texto.isEmpty() )
 			return "";
 
-		_texto = _texto.replace( "·", "a" ).replace( "È", "e" ).replace( "Ì", "i" ).replace( "Û", "o" ).replace( "˙", "u" ).replace( "¡", "A" ).replace( "…", "E" ).replace( "Õ", "I" ).replace( "”", "O" ).replace( "⁄", "U" );
-		_texto = _texto.replace( "Ò", "n" ).replace( "—", "N" );
-		_texto = _texto.replace( "Á", "c" ).replace( "«", "C" );
+		_texto = _texto	.replace( "√°", "a" )
+						.replace( "√©", "e" )
+						.replace( "√≠", "i" )
+						.replace( "√≥", "o" )
+						.replace( "√∫", "u" )
+						.replace( "√Å", "A" )
+						.replace( "√Ñ", "A" )
+						.replace( "√â", "E" )
+						.replace( "√ç", "I" )
+						.replace( "√ì", "O" )
+						.replace( "√ñ", "O" )
+						.replace( "√ö", "U" )
+						.replace( "√ú", "U" );
+		_texto = _texto.replace( "√±", "ni" ).replace( "√ë", "NI" );
+		_texto = _texto.replace( "√ß", "c" ).replace( "√á", "C" );
 
 		return _texto;
 		}
 
 	/**
-	 * Pon en may˙scula la primera letra del <code>_texto</code>
+	 * Pon en may√∫scula la primera letra del <code>_texto</code>
 	 * 
 	 * @param _texto
-	 *            El texto original con la primera letra en may˙lscula
+	 *            El texto original con la primera letra en may√∫scula
 	 * @return
 	 */
 	public static String enMayuscula( String _texto )
@@ -341,24 +355,24 @@ public class Texto
 
 	/**
 	 * <p>
-	 * Comprueba si todas las letras de <code>_texto</code> est·n en may˙scula,
-	 * incluyendo el guiÛn bajo "_"
+	 * Comprueba si todas las letras de <code>_texto</code> estÔøΩn en may√∫scula,
+	 * incluyendo el gui√≥n bajo "_"
 	 * </p>
 	 * 
 	 * @param _texto
-	 * @return <code>false</code>, si hay al menos una letra en min˙scula
+	 * @return <code>false</code>, si hay al menos una letra en min√∫scula
 	 */
 	public static boolean esTodoMayusculas( String _texto )
 		{
-		Pattern p = Pattern.compile( "^[A-Z¡…Õ”⁄¿»Ã“ŸƒÀœ÷‹—«_]+$" );
+		Pattern p = Pattern.compile( "^[A-Z√Å√â√ç√ì√ö√á√Ñ√ã√è√ñ√ú_]+$" );
 		return p.matcher( _texto ).find();
 		}
 
 	/**
-	 * Pone en min˙scula la primera letra del <code>_texto</code>
+	 * Pone en min√∫scula la primera letra del <code>_texto</code>
 	 * 
 	 * @param _texto
-	 *            El texto original con la primera letra en min˙scula
+	 *            El texto original con la primera letra en min√∫scula
 	 * @return
 	 */
 	public static String minuscula( String _texto )
@@ -392,37 +406,18 @@ public class Texto
 
 	public static List< String > palabrasEn( String _texto )
 		{
-		return Stream.of( _texto.split( "[^\\w·ÈÌÛ˙¡…Õ”⁄¸‹]+" ) ).filter( palabra -> !palabra.isEmpty() ).collect( Collectors.toList() );
-		}
-
-	public static void main( String[] args )
-		{
-		System.out.println( Texto.cantidadPalabrasEn( ".AquÌ / hay   cuatro palabras  " ) );
-		System.out.println( Texto.cantidadPalabrasEn( "." ) );
-
-		String _texto = ".AquÌ / hay   cuatro palabras  ";
-		Matcher m = Pattern.compile( "\\b" ).matcher( _texto );
-		int nro = 0;
-		while( m.find() )
-			nro++;
-
-		System.out.println( nro / 2 );
-
-		String[] palabras = _texto.split( "[^\\w·ÈÌÛ˙¡…Õ”⁄¸‹]+" );
-		Stream.of( palabras ).forEach( System.out::println );
-
-		System.out.println( palabrasEn( _texto ) );
+		return Stream.of( _texto.split( "[^\\w√Å√â√ç√ì√ö√Ñ√ã√è√ñ√ú√ë√á√°√©√≠√≥√∫√§√´√Ø√∂√º√±√ß]+" ) ).filter( palabra -> !palabra.isEmpty() ).collect( Collectors.toList() );
 		}
 
 	/**
 	 * Interpreta el <code>_texto</code> como una secuencia de campos separados
-	 * por <code>_separadorCampos</code>. El campo en sÌ se compone de dos
+	 * por <code>_separadorCampos</code>. El campo en sÔøΩ se compone de dos
 	 * partes. El nombre es la parte anterior al <code>_separadorValor</code>, y
 	 * el valor es la parte que sigue al <code>_separadorValor</code>,
 	 * eliminando los espacios al inicio y al final
 	 * 
 	 * @param _lineaTexto
-	 *            LÌnea de texto con los campos
+	 *            L√≠nea de texto con los campos
 	 * @param _separadorCampos
 	 *            Texto que delimita los campos
 	 * @param _separadorValor
@@ -439,19 +434,20 @@ public class Texto
 											.splitToList( _lineaTexto );
 
 		Map< String, String > res = new HashMap<>();
-		registro.stream().forEach( //
-				e -> //
-				{
-				Pattern p = Pattern.compile( "\\s*(?<nombre>[^" + _separadorValor + "]+)" + _separadorValor + "\\s*(?<valor>.+)" );
-				Matcher m = p.matcher( e );
-				if( m.find() )
-					{
-					String nombre = m.group( "nombre" );
-					String valor = m.group( "valor" );
+		registro.stream()
+				.forEach( //
+						e -> //
+						{
+						Pattern p = Pattern.compile( "\\s*(?<nombre>[^" + _separadorValor + "]+)" + _separadorValor + "\\s*(?<valor>.+)" );
+						Matcher m = p.matcher( e );
+						if( m.find() )
+							{
+							String nombre = m.group( "nombre" );
+							String valor = m.group( "valor" );
 
-					res.put( nombre, valor );
-					}
-				} );
+							res.put( nombre, valor );
+							}
+						} );
 
 		return res;
 		}
@@ -463,11 +459,11 @@ public class Texto
 	 * 
 	 * <p>
 	 * El nombre del campo es la palabra que termina en dos puntos (:) y
-	 * contin˙a con el valor. El valor no va separado de los dos puntos.
+	 * continÔøΩa con el valor. El valor no va separado de los dos puntos.
 	 * </p>
 	 * Ejemplo:
 	 * 
-	 * DefiniciÛn de un registro con los campos id, importe y fecha.
+	 * Definici√≥n de un registro con los campos id, importe y fecha.
 	 * 
 	 * <pre>
 	 * id:25 importe:244.35 fecha:25-3-2000
@@ -513,7 +509,6 @@ public class Texto
 		return campos;
 		}
 
-
 	public static String camposALineaTexto( Map< String, String > _campos )
 		{
 		return _campos//
@@ -547,8 +542,8 @@ public class Texto
 		}
 
 	/**
-	 * Nombra el n˙mero en texto hasta el 10. A partir del 11 se da el propio
-	 * n˙mero
+	 * Nombra el n√∫mero en texto hasta el 10. A partir del 11 se da el propio
+	 * n√∫mero
 	 * 
 	 * @param _cantidad
 	 * @return
@@ -562,8 +557,8 @@ public class Texto
 		}
 
 	/**
-	 * Averigua el plural de la <code>_palabra</code>. Si Èsta se una frase,
-	 * sÛlo se pluraliza la primera.
+	 * Averigua el plural de la <code>_palabra</code>. Si ÔøΩsta se una frase,
+	 * sÔøΩlo se pluraliza la primera.
 	 *
 	 * @param _palabra
 	 *            La palabra o frase
@@ -574,7 +569,7 @@ public class Texto
 		int i = _palabra.indexOf( ' ' );
 
 		//
-		// Si es una frase, se pluraliza sÛlo la primera
+		// Si es una frase, se pluraliza sÔøΩlo la primera
 		// palabra
 		//
 		if( i > 0 )
@@ -588,35 +583,35 @@ public class Texto
 		if( "Z".indexOf( ultimaLetra ) >= 0 )
 			return "ces";
 
-		if( _palabra.endsWith( "·n" ) )
-			return _palabra.substring( 0, _palabra.lastIndexOf( "·n" ) ) + "anes";
+		if( _palabra.endsWith( "√°n" ) )
+			return _palabra.substring( 0, _palabra.lastIndexOf( "√°n" ) ) + "anes";
 
-		if( _palabra.endsWith( "Èn" ) )
-			return _palabra.substring( 0, _palabra.lastIndexOf( "Èn" ) ) + "enes";
+		if( _palabra.endsWith( "√©n" ) )
+			return _palabra.substring( 0, _palabra.lastIndexOf( "ÔøΩn" ) ) + "enes";
 
-		if( _palabra.endsWith( "Ìn" ) )
-			return _palabra.substring( 0, _palabra.lastIndexOf( "Ìn" ) ) + "ines";
+		if( _palabra.endsWith( "√≠n" ) )
+			return _palabra.substring( 0, _palabra.lastIndexOf( "ÔøΩn" ) ) + "ines";
 
-		if( _palabra.endsWith( "Ûn" ) )
-			return _palabra.substring( 0, _palabra.lastIndexOf( "Ûn" ) ) + "ones";
+		if( _palabra.endsWith( "√≥n" ) )
+			return _palabra.substring( 0, _palabra.lastIndexOf( "ÔøΩn" ) ) + "ones";
 
-		if( _palabra.endsWith( "˙n" ) )
-			return _palabra.substring( 0, _palabra.lastIndexOf( "˙n" ) ) + "unes";
+		if( _palabra.endsWith( "√∫n" ) )
+			return _palabra.substring( 0, _palabra.lastIndexOf( "ÔøΩn" ) ) + "unes";
 
-		if( _palabra.endsWith( "·s" ) )
-			return _palabra.substring( 0, _palabra.lastIndexOf( "·s" ) ) + "anes";
+		if( _palabra.endsWith( "an" ) )
+			return _palabra.substring( 0, _palabra.lastIndexOf( "ÔøΩs" ) ) + "anes";
 
-		if( _palabra.endsWith( "Ès" ) )
-			return _palabra.substring( 0, _palabra.lastIndexOf( "Ès" ) ) + "enes";
+		if( _palabra.endsWith( "en" ) )
+			return _palabra.substring( 0, _palabra.lastIndexOf( "ÔøΩs" ) ) + "enes";
 
-		if( _palabra.endsWith( "Ìs" ) )
-			return _palabra.substring( 0, _palabra.lastIndexOf( "Ìs" ) ) + "ines";
+		if( _palabra.endsWith( "in" ) )
+			return _palabra.substring( 0, _palabra.lastIndexOf( "ÔøΩs" ) ) + "ines";
 
-		if( _palabra.endsWith( "Ûs" ) )
-			return _palabra.substring( 0, _palabra.lastIndexOf( "Ûs" ) ) + "ones";
+		if( _palabra.endsWith( "on" ) )
+			return _palabra.substring( 0, _palabra.lastIndexOf( "ÔøΩs" ) ) + "ones";
 
-		if( _palabra.endsWith( "˙s" ) )
-			return _palabra.substring( 0, _palabra.lastIndexOf( "˙s" ) ) + "unes";
+		if( _palabra.endsWith( "un" ) )
+			return _palabra.substring( 0, _palabra.lastIndexOf( "ÔøΩs" ) ) + "unes";
 
 		return _palabra + "es";
 		}
@@ -660,16 +655,60 @@ public class Texto
 		if( palabra.endsWith( "ada" ) )
 			return true;
 
-		if( esColor( palabra ) )
-			return true;
-
-		return false;
+		return esColor( palabra );
 		}
 
-	private static String _Colores = "amarillo.amarilla.azul.blanco.blanca.naranja.negro.negra.rojo.roja.rosa.verde.violeta";
+	private static String _Colores = ".amarillo.amarilla.azul.blanco.blanca.naranja.negro.negra.rojo.roja.rosa.verde.violeta.";
 
 	public static boolean esColor( String _palabra )
 		{
-		return _Colores.indexOf( _palabra ) >= 0;
+		return _Colores.indexOf( "." + _palabra + "." ) >= 0;
+		}
+
+	/**
+	 * <p>
+	 * Se trata como masculina la expresi√≥n que lleva el art√≠culo
+	 * <code>el</code> (ej: incluye como masculino <code>asa</code>)
+	 * </p>
+	 *
+	 * @param _expresion
+	 * @return
+	 */
+	public static boolean esMasculino( String _expresion )
+		{
+		String palabra = primeraPalabra( _expresion ).toLowerCase();
+
+		/*
+		 * Palabras excluidas
+		 */
+		if( ".aguas.alarmas.base.bases.clase.clases.flor.frase.frases.iva.".contains( "." + palabra + "." ) )
+			return false;
+
+		/*
+		 * Terminaciones excluidas
+		 */
+		if( palabra.endsWith( "ci√≥n" ) || palabra.endsWith( "ciones" ) || palabra.endsWith( "dad" ) || palabra.endsWith( "dades" ) )
+			return false;
+
+		/*
+		 * Terminaciones incluidas
+		 */
+		if( palabra.endsWith( "ente" ) || palabra.endsWith( "entes" ) || palabra.endsWith( "il" ) || palabra.endsWith( "iles" ) )
+			return true;
+		if( palabra.endsWith( "or" ) || palabra.endsWith( "ores" ) )
+			return true;
+
+		if( palabra.startsWith( "a" ) )
+			return true;
+
+		return !palabra.endsWith( "a" ) && !palabra.endsWith( "as" );
+		}
+
+	private static String primeraPalabra( String _expresion )
+		{
+		if( !_expresion.contains( " " ) )
+			return _expresion;
+
+		return _expresion.substring( 0, _expresion.indexOf( ' ' ) );
 		}
 }

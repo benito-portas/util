@@ -8,9 +8,9 @@ import java.util.TimerTask;
 import bpd.util.observadores.ObservadorContadorSegundos;
 
 /**
- * Contador que se incrementa automáticamente cada segundo a partir de ejecutar
+ * Contador que se incrementa automï¿½ticamente cada segundo a partir de ejecutar
  * <code>arrancaContador</code>. A cada segundo comunica al usuario la cantidad
- * de segundos pasados a través del método {@link #segundo(int)} que el usuario
+ * de segundos pasados a travï¿½s del mÃ©todo {@link #segundo(int)} que el usuario
  * tiene que implementar
  * 
  * @see #arrancaContador()
@@ -34,7 +34,7 @@ public class ContadorSegundos
 		}
 
 	/**
-	 * Valor actual los segundos que han pasado desde que se arrancó el contador
+	 * Valor actual los segundos que han pasado desde que se arrancï¿½ el contador
 	 * 
 	 * @return
 	 */
@@ -44,7 +44,7 @@ public class ContadorSegundos
 		}
 
 	/**
-	 * Representación en texto del contador, usando el formato de reloj, en
+	 * RepresentaciÃ³n en texto del contador, usando el formato de reloj, en
 	 * donde las horas, minutos y segundos se separan por dos puntos
 	 * 
 	 * @see #formatea(long)
@@ -56,8 +56,8 @@ public class ContadorSegundos
 		}
 
 	/**
-	 * Pon el contador en marcha. A partir de aquí, cada segundo se notificará a
-	 * los observadores de este contador el número de sgundos contados
+	 * Pon el contador en marcha. A partir de aquÃ­, cada segundo se notificarï¿½ a
+	 * los observadores de este contador el nÃºmero de sgundos contados
 	 * 
 	 * @see #paraContador()
 	 */
@@ -87,7 +87,7 @@ public class ContadorSegundos
 		}
 
 	/**
-	 * Utilidad para convertir un valor numérico (<code>_segundos</code>) en
+	 * Utilidad para convertir un valor numï¿½rico (<code>_segundos</code>) en
 	 * formato reloj, en donde las horas, minutos y segundos se separan mediante
 	 * dos puntos
 	 * 

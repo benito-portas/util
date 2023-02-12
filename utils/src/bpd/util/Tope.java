@@ -6,11 +6,11 @@ import java.util.stream.IntStream;
 
 /**
  * Contador que incrementa su valor hasta alcanzar su tope, donde ejecuta la
- * función de los observadores registrados.
+ * funciÃ³n de los observadores registrados.
  * <p/>
  * 
- * Para registrar un observador se utiliza el método
- * {@link #observadoPor(Runnable)}. El observador es una función.
+ * Para registrar un observador se utiliza el mÃ©todo
+ * {@link #observadoPor(Runnable)}. El observador es una funciÃ³n.
  *
  */
 public class Tope
@@ -33,7 +33,7 @@ public class Tope
 		}
 
 	/**
-	 * Haz que la alarma se ejecute cíclicamente
+	 * Haz que la alarma se ejecute cÃ­clicamente
 	 * 
 	 * @return
 	 */
@@ -78,7 +78,7 @@ public class Tope
 
 	/**
 	 * Incrementa el contador en <code>_cantidad</code> unidades, y si alcanza
-	 * el límite, lanza la alarma y rearma el contador
+	 * el lÃ­mite, lanza la alarma y rearma el contador
 	 * 
 	 * @param _cantidad
 	 * @return
@@ -96,12 +96,12 @@ public class Tope
 			return this;
 
 		/*
-		 * Se ha alcanzado el tope. Notificación a los observadores
+		 * Se ha alcanzado el tope. NotificaciÃ³n a los observadores
 		 */
 		_Observadores.forEach( Runnable::run );
 
 		/*
-		 * Vuelve a ejecutar si es cíclico
+		 * Vuelve a ejecutar si es cÃ­clico
 		 */
 		if( esCiclico() )
 			rearma();
@@ -110,7 +110,7 @@ public class Tope
 		}
 
 	/**
-	 * Incrementa el contador en una unidad, y si alcanza el límite, lanza la
+	 * Incrementa el contador en una unidad, y si alcanza el lÃ­mite, lanza la
 	 * alarma y rearma el contador
 	 * 
 	 * @return
@@ -124,9 +124,9 @@ public class Tope
 	 * Comprueba si el contador se encuentra en la zona de cuenteo o ha
 	 * alcanzado el tope.
 	 * 
-	 * @return <code>true</code> si todavía no se ha alcanzado el límite, o
-	 *         <code>false</code> en caso contrario. Si es cíclico, el resultado
-	 *         será siempre <code>true</code>
+	 * @return <code>true</code> si todavï¿½a no se ha alcanzado el lÃ­mite, o
+	 *         <code>false</code> en caso contrario. Si es cÃ­clico, el resultado
+	 *         serÃ¡ siempre <code>true</code>
 	 */
 	public boolean enCuenta()
 		{
