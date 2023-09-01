@@ -483,10 +483,10 @@ public class Texto
 	public static Map< String, String > camposDeLineaTexto( String _lineaTexto )
 		{
 		/*
-		 * El nombre del campo es un texto que termina en dos puntos, y tras los
-		 * dos puntos no hay un espacio
+		 * El nombre del campo es una palabra que empieza por una letra, a la
+		 * que le sigue el signo dos-puntos (:).
 		 */
-		Pattern plantillaNombres = Pattern.compile( "(\\b\\w+):" );
+		Pattern plantillaNombres = Pattern.compile( "(\\b[a-zA-Z]\\w+):" );
 		Matcher m = plantillaNombres.matcher( _lineaTexto );
 
 		List< String > nombres = new ArrayList<>();
