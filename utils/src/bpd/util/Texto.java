@@ -134,7 +134,7 @@ public class Texto
 		}
 
 	/**
-	 * Genera un número de versión autom�ticamente partiendo de una
+	 * Genera un número de versión automáticamente partiendo de una
 	 * <code>_version</code> anterior.
 	 * 
 	 * <p>
@@ -192,7 +192,7 @@ public class Texto
 
 	/**
 	 * Asegura que el <code>_texto</code> termina en <code>_terminacion</code>.
-	 * Si no lo hace, se le a�ade la terminación al texto.
+	 * Si no lo hace, se le añade la terminación al texto.
 	 * <p/>
 	 * 
 	 * Tiene en cuenta que la terminación puede venir en mayúsculas y
@@ -232,7 +232,7 @@ public class Texto
 
 	/**
 	 * Cambia todos los caracteres, no permitidos en un nombre de fichero, por
-	 * el car�cter "<code>_</code>".
+	 * el carácter "<code>_</code>".
 	 * 
 	 * @param _nomFich
 	 * @return
@@ -243,7 +243,7 @@ public class Texto
 		}
 
 	/**
-	 * Es num�rico si JAVA entiende la <code>_expresión</code> como número
+	 * Es numérico si JAVA entiende la <code>_expresión</code> como número
 	 * decimal
 	 * 
 	 * @param _expresion
@@ -265,7 +265,7 @@ public class Texto
 
 	/**
 	 * <code>_texto</code> es número decimal cuando consta de un punto precedio
-	 * o seguido de d�gitos, con posible signo en la primera posición
+	 * o seguido de dígitos, con posible signo en la primera posición
 	 * <p/>
 	 * 
 	 * Ejemplos:
@@ -294,7 +294,7 @@ public class Texto
 	 * <p>
 	 * Convierte <code>_texto</code> cambiando los caracteres con acentos en los
 	 * mismos sin acento, conservando las mayúsculas y minúsculas. Igualmente se
-	 * convierte la eñe en ene y la cedilla en la letre ce
+	 * convierte la eñe en ene y la cedilla en la letra ce
 	 * </p>
 	 * 
 	 * @param _texto
@@ -459,7 +459,7 @@ public class Texto
 	 * 
 	 * <p>
 	 * El nombre del campo es la palabra que termina en dos puntos (:) y
-	 * contin�a con el valor. El valor no va separado de los dos puntos.
+	 * continúa con el valor. El valor no va separado de los dos puntos.
 	 * </p>
 	 * Ejemplo:
 	 * 
@@ -557,8 +557,8 @@ public class Texto
 		}
 
 	/**
-	 * Averigua el plural de la <code>_palabra</code>. Si �sta se una frase,
-	 * s�lo se pluraliza la primera.
+	 * Averigua el plural de la <code>_palabra</code>. Si ésta se una frase,
+	 * sólo se pluraliza la primera.
 	 *
 	 * @param _palabra
 	 *            La palabra o frase
@@ -569,7 +569,7 @@ public class Texto
 		int i = _palabra.indexOf( ' ' );
 
 		//
-		// Si es una frase, se pluraliza s�lo la primera
+		// Si es una frase, se pluraliza sólo la primera
 		// palabra
 		//
 		if( i > 0 )
@@ -587,31 +587,31 @@ public class Texto
 			return _palabra.substring( 0, _palabra.lastIndexOf( "án" ) ) + "anes";
 
 		if( _palabra.endsWith( "én" ) )
-			return _palabra.substring( 0, _palabra.lastIndexOf( "�n" ) ) + "enes";
+			return _palabra.substring( 0, _palabra.lastIndexOf( "én" ) ) + "enes";
 
 		if( _palabra.endsWith( "ín" ) )
-			return _palabra.substring( 0, _palabra.lastIndexOf( "�n" ) ) + "ines";
+			return _palabra.substring( 0, _palabra.lastIndexOf( "ín" ) ) + "ines";
 
 		if( _palabra.endsWith( "ón" ) )
-			return _palabra.substring( 0, _palabra.lastIndexOf( "�n" ) ) + "ones";
+			return _palabra.substring( 0, _palabra.lastIndexOf( "ón" ) ) + "ones";
 
 		if( _palabra.endsWith( "ún" ) )
-			return _palabra.substring( 0, _palabra.lastIndexOf( "�n" ) ) + "unes";
+			return _palabra.substring( 0, _palabra.lastIndexOf( "ún" ) ) + "unes";
 
 		if( _palabra.endsWith( "an" ) )
-			return _palabra.substring( 0, _palabra.lastIndexOf( "�s" ) ) + "anes";
+			return _palabra.substring( 0, _palabra.lastIndexOf( "an" ) ) + "anes";
 
 		if( _palabra.endsWith( "en" ) )
-			return _palabra.substring( 0, _palabra.lastIndexOf( "�s" ) ) + "enes";
+			return _palabra.substring( 0, _palabra.lastIndexOf( "en" ) ) + "enes";
 
 		if( _palabra.endsWith( "in" ) )
-			return _palabra.substring( 0, _palabra.lastIndexOf( "�s" ) ) + "ines";
+			return _palabra.substring( 0, _palabra.lastIndexOf( "in" ) ) + "ines";
 
 		if( _palabra.endsWith( "on" ) )
-			return _palabra.substring( 0, _palabra.lastIndexOf( "�s" ) ) + "ones";
+			return _palabra.substring( 0, _palabra.lastIndexOf( "on" ) ) + "ones";
 
 		if( _palabra.endsWith( "un" ) )
-			return _palabra.substring( 0, _palabra.lastIndexOf( "�s" ) ) + "unes";
+			return _palabra.substring( 0, _palabra.lastIndexOf( "un" ) ) + "unes";
 
 		return _palabra + "es";
 		}

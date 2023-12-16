@@ -1,37 +1,20 @@
 package bpd.util;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ConcatenadorDeTexto
 {
-	private StringBuilder	_TextoConcatenado	= new StringBuilder();
-	private String			_Delimitador		= null;
-	private boolean			_IncluirVacios		= false;
-	private String			_Alternativo		= "";
+	private String			_Delimitador	= null;
+	private boolean			_IncluirVacios	= false;
+	private String			_Alternativo	= "";
+	private boolean			_EsReverso;
 
-	/**
-	 * El que inserta despu�s del inicial
-	 */
-	private Insertador		_InsertadorFinal	= _texto -> {
-												_TextoConcatenado.append( _Delimitador );
-												_TextoConcatenado.append( _texto );
-												};
-
-	/**
-	 * El que inicia la inserción
-	 */
-	private Insertador		_InsertadorInicial	= _texto -> {
-												_TextoConcatenado.append( _texto );
-												_Insertador = _InsertadorFinal;
-												};
-
-	/**
-	 * El que realmente inserta. La primera inserción la asume el
-	 * <code>_InsertadorInicial</code>, el resto de inserciones las hace el
-	 * <code>_InsertadorFinal</code>
-	 */
-	private Insertador		_Insertador;
+	private List< String >	_Contenidos		= new ArrayList<>();
 
 	/**
 	 * Texto que se antepone al contenido, si hay contenido
@@ -39,7 +22,7 @@ public class ConcatenadorDeTexto
 	private String			_Prefijo;
 
 	/**
-	 * Texto que se a�ade al conenido, si hay contenido
+	 * Texto que se añade al contenido, si hay contenido
 	 */
 	private String			_Sufijo;
 
@@ -58,10 +41,6 @@ public class ConcatenadorDeTexto
 		return mediante( "," );
 		}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public static ConcatenadorDeTexto medianteEspacio()
 		{
 		return mediante( " " );
@@ -127,12 +106,11 @@ public class ConcatenadorDeTexto
 	 * @param _prefijo
 	 *            Texto que se antepone al contenido, si hay contenido
 	 * @param _sufijo
-	 *            Texto que se a�ade al contenido, si hay contenido
+	 *            Texto que se añade al contenido, si hay contenido
 	 */
 	public ConcatenadorDeTexto( String _delimitador, String _prefijo, String _sufijo )
 		{
 		_Delimitador = _delimitador;
-		_Insertador = _InsertadorInicial;
 		_Prefijo = _prefijo;
 		_Sufijo = _sufijo;
 		}
@@ -144,7 +122,7 @@ public class ConcatenadorDeTexto
 		}
 
 	/**
-	 * A�ade un espacio al delimitador
+	 * Añade un espacio al delimitador
 	 * 
 	 * @return
 	 */
@@ -179,9 +157,21 @@ public class ConcatenadorDeTexto
 		return this;
 		}
 
+	/**
+	 * Realizar la concatenación en orden inverso al de introducción.
+	 * <p/>
+	 * 
+	 * @return
+	 */
+	public ConcatenadorDeTexto inverso()
+		{
+		_EsReverso = true;
+		return this;
+		}
+
 	public boolean estaVacio()
 		{
-		return _TextoConcatenado.length() < 1;
+		return _Contenidos.isEmpty();
 		}
 
 	public ConcatenadorDeTexto concatena( String _nuevoTexto )
@@ -189,12 +179,12 @@ public class ConcatenadorDeTexto
 		if( !_IncluirVacios && ( _nuevoTexto == null || _nuevoTexto.isEmpty() ) )
 			return this;
 
-		_Insertador.inserta( _nuevoTexto );
+		_Contenidos.add( _nuevoTexto );
 		return this;
 		}
 
 	/**
-	 * A�ade la <code>_nota</code>, si se cumple la <code>_condicion</code>
+	 * Añade la <code>_nota</code>, si se cumple la <code>_condicion</code>
 	 * 
 	 * @param _condicion
 	 *            Si se cumple esta condición, se concatena la
@@ -229,12 +219,12 @@ public class ConcatenadorDeTexto
 
 	/**
 	 * <p>
-	 * Definición de c�mo debe ser concatenado el <code>_objeto</code>. Lo que
+	 * Definición de cómo debe ser concatenado el <code>_objeto</code>. Lo que
 	 * aquí se concatena es la representación en texto del <code>_objeto</code>
 	 * </p>
 	 * <p>
 	 * Posibilidad de redefinir esta función para tener m�s flexibilidad a la
-	 * hora de concatenar algo en particular. Por ejemplo, concatenar s�lo una
+	 * hora de concatenar algo en particular. Por ejemplo, concatenar sólo una
 	 * propiedad del objeto.
 	 * </p>
 	 * 
@@ -260,11 +250,6 @@ public class ConcatenadorDeTexto
 		return concatena( Arrays.asList( _objects ) );
 		}
 
-	public ConcatenadorDeTexto con( Collection< ? > _lista )
-		{
-		return concatena( _lista );
-		}
-
 	public ConcatenadorDeTexto concatena( boolean _condicion, Collection< ? > _lista )
 		{
 		if( _condicion )
@@ -272,21 +257,21 @@ public class ConcatenadorDeTexto
 		return this;
 		}
 
+	@Override
 	public String toString()
 		{
-		String textoConcatenado = _TextoConcatenado.toString();
-
-		if( textoConcatenado.isEmpty() && _Alternativo.isEmpty() )
-			return "";
-
-		if( textoConcatenado.isEmpty() )
-			textoConcatenado = _Alternativo;
-
-		return _Prefijo + textoConcatenado + _Sufijo;
+		return aTexto();
 		}
-}
 
-interface Insertador
-{
-	public void inserta( String _texto );
+	public String aTexto()
+		{
+		if( _Contenidos.isEmpty() )
+			return _Alternativo;
+
+		ArrayList< String > contenidos = new ArrayList<>( _Contenidos );
+		if( _EsReverso )
+			Collections.reverse( contenidos );
+
+		return _Prefijo + contenidos.stream().collect( Collectors.joining( _Delimitador ) ) + _Sufijo;
+		}
 }
