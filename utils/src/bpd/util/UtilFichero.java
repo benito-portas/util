@@ -300,23 +300,22 @@ public class UtilFichero
 	 */
 	private static byte[] inicioDe( File _f, int _cantidad ) throws IOException
 		{
-		if( !_f.exists() )
+		if( !_f.exists() || !_f.isFile() )
 			return new byte[] {};
 
 		byte[] datos = new byte[ _cantidad ];
 
-		if( _f.exists() )
-			try( FileInputStream fin = new FileInputStream( _f ) )
-				{
-				int x = fin.read( datos );
-				if( x < _cantidad )
-					return new byte[] {};
-				}
-			catch( FileNotFoundException _ex )
-				{
-				// Nunca se va a dar
-				_ex.printStackTrace();
-				}
+		try( FileInputStream fin = new FileInputStream( _f ) )
+			{
+			int x = fin.read( datos );
+			if( x < _cantidad )
+				return new byte[] {};
+			}
+		catch( FileNotFoundException _ex )
+			{
+			// Nunca se va a dar
+			_ex.printStackTrace();
+			}
 
 		return datos;
 		}
