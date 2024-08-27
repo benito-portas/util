@@ -15,7 +15,7 @@ public class Reaccion
 
 	/**
 	 * <code>_estimulo</code> es una expresión <code>REGEX</code> que define el
-	 * est�mulo al que hay que reaccionar
+	 * estímulo al que hay que reaccionar
 	 * 
 	 * @param _estimulo
 	 */
@@ -25,7 +25,7 @@ public class Reaccion
 		}
 
 	/**
-	 * Comprueba si el <code>_texto</code> es mi est�mulo, y reacciona
+	 * Comprueba si el <code>_texto</code> es mi estímulo, y reacciona
 	 * 
 	 * @param _texto
 	 */

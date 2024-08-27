@@ -124,7 +124,7 @@ public class Tope
 	 * Comprueba si el contador se encuentra en la zona de cuenteo o ha
 	 * alcanzado el tope.
 	 * 
-	 * @return <code>true</code> si todav�a no se ha alcanzado el límite, o
+	 * @return <code>true</code> si todavía no se ha alcanzado el límite, o
 	 *         <code>false</code> en caso contrario. Si es cíclico, el resultado
 	 *         será siempre <code>true</code>
 	 */
