@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class ConcatenadorDeTexto
 {
@@ -25,6 +26,7 @@ public class ConcatenadorDeTexto
 	 * Texto que se añade al contenido, si hay contenido
 	 */
 	private String			_Sufijo;
+	private String			_Secuencia		= "";
 
 	public static ConcatenadorDeTexto sinConcatenador()
 		{
@@ -257,6 +259,13 @@ public class ConcatenadorDeTexto
 		return this;
 		}
 
+	public ConcatenadorDeTexto secuenciando( String _plantilla )
+		{
+		String.format( _plantilla, 0, "prueba" );
+		_Secuencia = _plantilla;
+		return this;
+		}
+
 	@Override
 	public String toString()
 		{
@@ -268,10 +277,26 @@ public class ConcatenadorDeTexto
 		if( _Contenidos.isEmpty() )
 			return _Alternativo;
 
-		ArrayList< String > contenidos = new ArrayList<>( _Contenidos );
+		List< String > contenidos = new ArrayList<>( _Contenidos );
 		if( _EsReverso )
 			Collections.reverse( contenidos );
 
-		return _Prefijo + contenidos.stream().collect( Collectors.joining( _Delimitador ) ) + _Sufijo;
+		String expresion = esSecuenciando() && contenidos.size() > 1//
+				? IntStream//
+							.range( 0, contenidos.size() )
+							.mapToObj( //
+									n -> {
+									String plantillaExpresion = _Secuencia + "%s";
+									return String.format( plantillaExpresion, n + 1, contenidos.get( n ) );
+									} )
+							.collect( Collectors.joining( _Delimitador ) )
+				: contenidos.stream().collect( Collectors.joining( _Delimitador ) );
+
+		return _Prefijo + expresion + _Sufijo;
+		}
+
+	private boolean esSecuenciando()
+		{
+		return !_Secuencia.isEmpty();
 		}
 }
