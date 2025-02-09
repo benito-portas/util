@@ -10,12 +10,12 @@ import java.util.stream.IntStream;
 
 public class ConcatenadorDeTexto
 {
-	private String			_Delimitador	= null;
-	private boolean			_IncluirVacios	= false;
-	private String			_Alternativo	= "";
+	private String			_Delimitador			= null;
+	private boolean			_IncluirVacios			= false;
+	private String			_Alternativo			= "";
 	private boolean			_EsReverso;
 
-	private List< String >	_Contenidos		= new ArrayList<>();
+	private List< String >	_Contenidos				= new ArrayList<>();
 
 	/**
 	 * Texto que se antepone al contenido, si hay contenido
@@ -26,7 +26,8 @@ public class ConcatenadorDeTexto
 	 * Texto que se añade al contenido, si hay contenido
 	 */
 	private String			_Sufijo;
-	private String			_Secuencia		= "";
+	private String			_Secuencia				= "";
+	private String			_PlantillaNumeracion	= "";
 
 	public static ConcatenadorDeTexto sinConcatenador()
 		{
@@ -176,10 +177,19 @@ public class ConcatenadorDeTexto
 		return _Contenidos.isEmpty();
 		}
 
+	public ConcatenadorDeTexto numeracion( String _plantilla )
+		{
+		_PlantillaNumeracion = _plantilla;
+		return this;
+		}
+
 	public ConcatenadorDeTexto concatena( String _nuevoTexto )
 		{
 		if( !_IncluirVacios && ( _nuevoTexto == null || _nuevoTexto.isEmpty() ) )
 			return this;
+
+		if( _PlantillaNumeracion.contains( "%d" ) )
+			_nuevoTexto = String.format( _PlantillaNumeracion + "%s", _Contenidos.size() + 1, _nuevoTexto );
 
 		_Contenidos.add( _nuevoTexto );
 		return this;
