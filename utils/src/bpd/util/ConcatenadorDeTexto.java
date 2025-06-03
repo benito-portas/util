@@ -10,12 +10,12 @@ import java.util.stream.IntStream;
 
 public class ConcatenadorDeTexto
 {
-	private String			_Delimitador			= null;
-	private boolean			_IncluirVacios			= false;
-	private String			_Alternativo			= "";
+	private String			_Delimitador	= null;
+	private boolean			_IncluirVacios	= false;
+	private String			_Alternativo	= "";
 	private boolean			_EsReverso;
 
-	private List< String >	_Contenidos				= new ArrayList<>();
+	private List< String >	_Contenidos		= new ArrayList<>();
 
 	/**
 	 * Texto que se antepone al contenido, si hay contenido
@@ -26,8 +26,8 @@ public class ConcatenadorDeTexto
 	 * Texto que se añade al contenido, si hay contenido
 	 */
 	private String			_Sufijo;
-	private String			_Secuencia				= "";
-	private String			_PlantillaNumeracion	= "";
+	private String			_Secuencia		= "";
+	private int				_Limite;
 
 	public static ConcatenadorDeTexto sinConcatenador()
 		{
@@ -172,24 +172,21 @@ public class ConcatenadorDeTexto
 		return this;
 		}
 
+	public ConcatenadorDeTexto limite( int _limite )
+		{
+		_Limite = _limite;
+		return this;
+		}
+
 	public boolean estaVacio()
 		{
 		return _Contenidos.isEmpty();
-		}
-
-	public ConcatenadorDeTexto numeracion( String _plantilla )
-		{
-		_PlantillaNumeracion = _plantilla;
-		return this;
 		}
 
 	public ConcatenadorDeTexto concatena( String _nuevoTexto )
 		{
 		if( !_IncluirVacios && ( _nuevoTexto == null || _nuevoTexto.isEmpty() ) )
 			return this;
-
-		if( _PlantillaNumeracion.contains( "%d" ) )
-			_nuevoTexto = String.format( _PlantillaNumeracion + "%s", _Contenidos.size() + 1, _nuevoTexto );
 
 		_Contenidos.add( _nuevoTexto );
 		return this;
@@ -271,6 +268,9 @@ public class ConcatenadorDeTexto
 
 	public ConcatenadorDeTexto secuenciando( String _plantilla )
 		{
+		/*
+		 * Provoca error, si la plantilla es incorrecta
+		 */
 		String.format( _plantilla, 0, "prueba" );
 		_Secuencia = _plantilla;
 		return this;
@@ -291,16 +291,20 @@ public class ConcatenadorDeTexto
 		if( _EsReverso )
 			Collections.reverse( contenidos );
 
+		if( _Limite > 0 && contenidos.size() > _Limite )
+			contenidos = contenidos.subList( 0, _Limite );
+
+		List< String > subconts = contenidos;
 		String expresion = esSecuenciando() && contenidos.size() > 1//
 				? IntStream//
-							.range( 0, contenidos.size() )
+							.range( 0, subconts.size() )
 							.mapToObj( //
 									n -> {
 									String plantillaExpresion = _Secuencia + "%s";
-									return String.format( plantillaExpresion, n + 1, contenidos.get( n ) );
+									return String.format( plantillaExpresion, n + 1, subconts.get( n ) );
 									} )
 							.collect( Collectors.joining( _Delimitador ) )
-				: contenidos.stream().collect( Collectors.joining( _Delimitador ) );
+				: subconts.stream().collect( Collectors.joining( _Delimitador ) );
 
 		return _Prefijo + expresion + _Sufijo;
 		}
